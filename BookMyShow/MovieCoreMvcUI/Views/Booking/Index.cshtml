@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookMyShowEntity.Booking>
+
+<div>
+    <a asp asp-controller="Booking" asp-action="BookingEntry">Booking Entry</a>
+    <hr />
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Bookings</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Booking Id</th>
+                    <th>Booking Amount</th>
+                    <th>User Id</th>
+                    <th>ShowTiming Id</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                        <td>@booking.Id</td>
+                        <td>@booking.Quantity</td>
+                        <td>@booking.UserId</td>
+                        <td>@booking.ShowTimingId</td>
+                        <td>
+                            <a asp-controller="Booking" asp-action="EditBooking"
+                           asp-route-BookingId="@booking.Id">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-controller="Booking" asp-action="DeleteBooking"
+                           asp-route-BookingId="@booking.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model BookMyShowEntity.Booking
+
+<div>
+    <a asp asp-controller="Booking" asp-action="Index">Return to Index</a>
+    <hr />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Delete Booking</h2><hr />
+
+    <div class="form-group">
+        <label>Booking id</label>
+        <input type="text" asp-for="Id" class="form-control"
+               placeholder="Enter movie id" required />
+    </div>
+
+    <input type="submit" value="delete" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+</form>

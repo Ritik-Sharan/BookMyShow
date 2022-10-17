@@ -1,0 +1,43 @@
+﻿@model BookMyShowEntity.Location
+
+<div>
+    <a asp asp-controller="Location" asp-action="Index">Return to Index</a>
+    <hr />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Location Entry</h2><hr />
+    <div class="form-group">
+        <label>location id</label>
+        <input type="text" asp-for="Id" class="form-control"
+               placeholder="Enter location id" required />
+    </div>
+    <div class="form-group">
+        <label>Theatre Id</label>
+        <input type="text" asp-for="TheatreId" class="form-control"
+               placeholder="Enter theatre Id" required />
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input type="text" asp-for="Place" class="form-control"
+               placeholder="Enter location" required />
+    </div>
+
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+</form>
+

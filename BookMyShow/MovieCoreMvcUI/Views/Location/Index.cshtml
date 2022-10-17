@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BookMyShowEntity.Location>
+
+<div>
+    <a asp asp-controller="Location" asp-action="LocationEntry">Location Entry</a>
+    <hr />
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Location</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Location Id</th>
+                    <th>Theatre Id</th>
+                    <th>Location</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var location in Model)
+                {
+                    <tr>
+                        <td>@location.Id</td>
+                        <td>@location.TheatreId</td>
+                        <td>@location.Place</td>
+                        <td>
+                            <a asp-controller="Location" asp-action="EditLocation"
+                           asp-route-LocationId="@location.Id">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-controller="Location" asp-action="DeleteLocation"
+                           asp-route-LocationId="@location.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
